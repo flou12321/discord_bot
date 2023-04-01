@@ -108,7 +108,7 @@ class PlayCommand(
                         return spotifyUri.tracks.getAllItemsNotNull()
                             .filter { playlistTrack -> playlistTrack.isLocal == false }
                             .filter { playlistTrack -> playlistTrack.track?.asTrack?.name != null }
-                            .map { playlistTrack -> "Youtube Search:" + playlistTrack.track?.asTrack?.name + " " + (playlistTrack.track?.asTrack?.artists?.joinToString(" ") { it.name } ?: "") }
+                            .map { playlistTrack -> "ytmsearch:" + playlistTrack.track?.asTrack?.name + " " + (playlistTrack.track?.asTrack?.artists?.joinToString(" ") { it.name } ?: "") }
                     }
                 }
                 else -> {return null}
@@ -165,7 +165,7 @@ class PlayCommand(
     ) : AudioLoadResultHandler {
         override fun trackLoaded(track: AudioTrack) {
             if (track.isOverDurationLimit) {
-                ctx.reply("Geht nicht: `${track.info.title}` zu lang brudder -> ${botProps.trackDurationLimit} MInuten")
+                ctx.reply("Geht nicht: `${track.info.title}` zu lang brudder -> ${botProps.trackDurationLimit} Minuten")
                 return
             }
             val started = player.add(track)

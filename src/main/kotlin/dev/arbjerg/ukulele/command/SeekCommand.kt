@@ -8,7 +8,6 @@ import java.util.regex.Pattern
 
 @Component
 class SeekCommand : Command ("seek") {
-
     override suspend fun CommandContext.invoke() {
         val track = player.tracks.firstOrNull() ?: return reply("Not playing anything.")
 
