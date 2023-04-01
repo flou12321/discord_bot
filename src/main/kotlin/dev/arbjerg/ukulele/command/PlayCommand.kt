@@ -108,7 +108,7 @@ class PlayCommand(
                         return spotifyUri.tracks.getAllItemsNotNull()
                             .filter { playlistTrack -> playlistTrack.isLocal == false }
                             .filter { playlistTrack -> playlistTrack.track?.asTrack?.name != null }
-                            .map { playlistTrack -> "ytmsearch:" + playlistTrack.track?.asTrack?.name + " " + (playlistTrack.track?.asTrack?.artists?.joinToString(" ") { it.name } ?: "") }
+                            .map { playlistTrack -> "Youtube Search:" + playlistTrack.track?.asTrack?.name + " " + (playlistTrack.track?.asTrack?.artists?.joinToString(" ") { it.name } ?: "") }
                     }
                 }
                 else -> {return null}

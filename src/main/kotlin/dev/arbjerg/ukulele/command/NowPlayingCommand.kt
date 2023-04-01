@@ -35,19 +35,19 @@ class NowPlayingCommand : Command ("nowplaying", "np") {
 
         //Set up common parts of the embed
         val message = EmbedBuilder()
-                .setTitle(track.info.title, track.info.uri)
+                .setTitle(track.info.author + " - " + track.info.title, track.info.uri)
                 .setFooter("Source: ${track.sourceManager.sourceName}")
 
         //Prepare embeds for overrides.
         fun youtube(): MessageEmbed {
             message.setColor(YOUTUBE_RED)
-            message.addField("Time", timeField, true)
+            message.addField("Song length", timeField, true)
             return message.build()
         }
 
         fun soundcloud(): MessageEmbed {
             message.setColor(SOUNDCLOUD_ORANGE)
-            message.addField("Time", timeField, true)
+            message.addField("Song length", timeField, true)
             return message.build()
         }
 
@@ -59,7 +59,7 @@ class NowPlayingCommand : Command ("nowplaying", "np") {
         fun default(): MessageEmbed {
             message.setTitle(track.info.title)  // Show just the title of the radio station. Weird uri jank.
             message.setColor(DEFAULT_GREY)
-            message.addField("Time", timeField, true)
+            message.addField("Song length", timeField, true)
             return message.build()
         }
     }
