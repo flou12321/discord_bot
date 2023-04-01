@@ -19,6 +19,10 @@ repositories {
 }
 
 dependencies {
+    // The 4.x version of JDA specifically needs a UDP fix from this commit:
+    // https://github.com/DV8FromTheWorld/JDA/commit/39ba0c2682ad99dbec88240cb8ea9d1ff7162ae9
+    // The snapshot version published in jitpack has this, so it is utilized for now.
+    // Eventually, a full upgrade to JDA 5.x will be necessary.
     implementation("com.github.DV8FromTheWorld:JDA:legacy~v4-SNAPSHOT")
     //implementation("com.sedmelluq:lavaplayer:1.3.78")
     implementation("com.github.walkyst:lavaplayer-fork:1.3.96")

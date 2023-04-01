@@ -165,7 +165,7 @@ class PlayCommand(
     ) : AudioLoadResultHandler {
         override fun trackLoaded(track: AudioTrack) {
             if (track.isOverDurationLimit) {
-                ctx.reply("Refusing to play `${track.info.title}` because it is over ${botProps.trackDurationLimit} minutes long")
+                ctx.reply("Geht nicht: `${track.info.title}` zu lang brudder -> ${botProps.trackDurationLimit} MInuten")
                 return
             }
             val started = player.add(track)
@@ -199,7 +199,7 @@ class PlayCommand(
         }
 
         override fun noMatches() {
-            ctx.reply("Nothing found for “$identifier”")
+            ctx.reply("Youtube Meta Suche ist shit: “$identifier”")
         }
 
         override fun loadFailed(exception: FriendlyException) {
